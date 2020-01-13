@@ -1,10 +1,10 @@
 #include "libmx.h"
 
-static int **inicializ_matrix(t_tool *d, int num);
-static int next_top(t_tool *data, int from, int to, int paths);
-static int previos_top(t_tool *data, int from, int to);
+static int **inicializ_matrix(t_mylist *d, int num);
+static int next_top(t_mylist *data, int from, int to, int paths);
+static int previos_top(t_mylist *data, int from, int to);
 
-int **mx_int_route(t_tool *d, int num, int from, int to) {
+int **mx_int_route(t_mylist *d, int num, int from, int to) {
     int **paths;
     int k = 1;
     int end;
@@ -28,7 +28,7 @@ int **mx_int_route(t_tool *d, int num, int from, int to) {
     return paths;
 }
 
-static int **inicializ_matrix(t_tool *d, int num) {
+static int **inicializ_matrix(t_mylist *d, int num) {
     int **paths = malloc(num * sizeof(int *));
 
     for (int a = 0; a < num; a++) {
@@ -39,7 +39,7 @@ static int **inicializ_matrix(t_tool *d, int num) {
     return paths;
 }
 
-static int next_top(t_tool *data, int from, int to, int paths) {
+static int next_top(t_mylist *data, int from, int to, int paths) {
     int weight;
     int temp;
     
@@ -54,7 +54,7 @@ static int next_top(t_tool *data, int from, int to, int paths) {
     return -2;
 }
 
-static int previos_top(t_tool *data, int from, int to) {
+static int previos_top(t_mylist *data, int from, int to) {
     int weight;
     int temp;
 

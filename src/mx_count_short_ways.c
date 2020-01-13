@@ -1,6 +1,6 @@
 #include "libmx.h"
 
-int mx_count_short_ways(t_tool *d, int a, int b) {
+int mx_count_short_ways(t_mylist *d, int a, int b) {
     int weight = d->dist[b][a];
     int c =  0;
     int temp;

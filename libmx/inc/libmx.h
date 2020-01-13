@@ -18,13 +18,13 @@ enum e_eror {
     ISLANDS_INVALID
 };
 
-typedef struct s_tool {
+typedef struct s_mylist {
     int size;
     int **matrix;
     int **dist;
     char **top;
     char **file; //file to print
-} t_tool;
+} t_mylist;
 
 typedef struct s_list {
     void *data;
@@ -44,12 +44,12 @@ int **mx_create_zero_matrix(int islands);
 int **mx_create_matrix(char **top, char **str, int size);
 int **mx_create_dist_matrix(int **matrix, int size);
 int mx_arr_size(char **arr);
-int mx_count_short_ways(t_tool *d,int begin, int end);
+int mx_count_short_ways(t_mylist *d,int begin, int end);
 void mx_del_intarr(int ***arr);
-int **mx_int_route(t_tool *d, int num, int from, int to);
-void mx_final_print(t_tool *d);
+int **mx_int_route(t_mylist *d, int num, int from, int to);
+void mx_final_print(t_mylist *d);
 bool mx_isspace(char c);
-void mx_print_distance(t_tool *d, int *path, int i, int j);
+void mx_print_distance(t_mylist *d, int *path, int i, int j);
 void matrix_to_final(int **matrix, int size, char **top);
 
 // Utils pack:

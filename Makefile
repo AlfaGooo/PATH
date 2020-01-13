@@ -62,7 +62,8 @@ OBJO = ./obj/main.o \
 	./obj/mx_arr_size.o \
 	./obj/mx_count_short_ways.o \
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
+CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror
+
 all: install uninstall
 install:
 	@cd libmx && make -f Makefile all
@@ -78,4 +79,4 @@ uninstall:
 clean: uninstall
 	@cd libmx && make -f Makefile clean
 	@rm -rf $(NAME)
-reinstall: clean all
+reinstall: uninstall install clean

@@ -1,6 +1,6 @@
 #include "libmx.h"
 
-void mx_print_distance(t_tool *d, int *path, int i, int j) {
+void mx_print_distance(t_mylist *d, int *path, int i, int j) {
     int l = 0;
 
     while(path[l] != -1)

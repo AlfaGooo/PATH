@@ -22,4 +22,4 @@ uninstall:
 	@rm -rf $(NAME)
 clean:
 	@rm -rf ./obj
-reinstall: uninstall all
+reinstall: uninstall install clean

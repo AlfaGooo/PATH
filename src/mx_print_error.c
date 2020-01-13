@@ -31,4 +31,4 @@ void invalid_err(enum e_eror errors, int i) {
     }
     else if (errors == ISLANDS_INVALID)
         mx_printerr("error: invalid number of islands\n");
- }
+}
