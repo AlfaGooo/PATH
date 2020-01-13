@@ -18,7 +18,7 @@ int main(int n, char **argv) {
     size = mx_atoi(file_arr[0]);
     top = mx_check_rd_args(file_arr, size);
     matrix = mx_create_matrix(top, file_arr, size);
-    matrix_to_final(matrix, size, top);
+    matrix_to_final(matrix, size, top); // tut 10 leaks
     // system("leaks -q pathfinder"); //10 leaks
     return 0;
 }
@@ -36,7 +36,7 @@ void matrix_to_final(int **matrix, int size, char **top) {
 
 static t_mylist *struct_make(int s, int **m, int **d, char **t) {
     t_mylist *data= malloc(sizeof(t_mylist));
-    
+
     data->size = s;
     data->matrix = m;
     data->dist = d;

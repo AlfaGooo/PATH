@@ -29,6 +29,7 @@ int **mx_int_route(t_mylist *d, int num, int from, int to) {
 }
 
 static int **inicializ_matrix(t_mylist *d, int num) {
+    // system("leaks -q pathfinder");
     int **paths = malloc(num * sizeof(int *));
 
     for (int a = 0; a < num; a++) {

@@ -2,28 +2,32 @@
 
 static void one_print(t_mylist *d, int *path, int i, int j);
 static char **file_to_print(t_mylist *d, int **path, int num);
+// void mx_free_array2(void **arr, int row);
 
 void mx_final_print(t_mylist *d) {
     int num;
     int **path;
     
+    // system("leaks -q pathfinder"); // 0 leaks
     for (int i = 0; i < d->size; i++) {
         for (int j = i + 1; j < d->size; j++) {
             num = mx_count_short_ways(d, i, j);
-            // system("leaks -q pathfinder"); // 2 leaks
+            // system("leaks -q pathfinder"); // 0 2 4 6 to 10 leaks
             path = mx_int_route(d, num, i, j);
-            // system("leaks -q pathfinder"); // 4 leaks
+            // system("leaks -q pathfinder"); // 0 2 4 leaks
             for (int c = 0; c < num; c++) {
                 if (c > 0 && mx_memcmp(path[c - 1], path[c], d->size) == 0)
                     break;
                 d->file = file_to_print(d, path, c);
                 one_print(d, path[c], i, j);
+                // mx_del_strarr(&path);
                 mx_del_strarr(&d->file);
+                // mx_free_array2((void **)path, 4);
                 // system("leaks -q pathfinder"); // 0, 2, 4 leaks
             }
         }
     }
-    // system("leaks -q pathfinder"); 4 leaks
+    // system("leaks -q pathfinder"); //4 leaks
 }
 
 static void one_print(t_mylist *d, int *path, int i, int j) {
@@ -57,3 +61,18 @@ static char **file_to_print(t_mylist *d, int **path, int num) {
     }
     return nedlee;
 }
+
+
+
+// void mx_free_array2(void **arr, int row) {
+//     if (arr) {
+//         for (int a = 0; a < row; a++) {
+//             if( arr[a]) {
+//                 free(arr[a]);
+//                 arr[a] = NULL;
+//             }
+//         }
+//         free(arr);
+//         arr = NULL;
+//     }
+// }
