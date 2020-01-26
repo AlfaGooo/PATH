@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 static int **inicializ_matrix(t_mylist *d, int num);
 static int next_top(t_mylist *data, int from, int to, int paths);
@@ -29,7 +29,6 @@ int **mx_int_route(t_mylist *d, int num, int from, int to) {
 }
 
 static int **inicializ_matrix(t_mylist *d, int num) {
-    // system("leaks -q pathfinder");
     int **paths = malloc(num * sizeof(int *));
 
     for (int a = 0; a < num; a++) {
@@ -38,12 +37,13 @@ static int **inicializ_matrix(t_mylist *d, int num) {
             paths[a][k] = -1;
     }
     return paths;
+    
 }
 
 static int next_top(t_mylist *data, int from, int to, int paths) {
     int weight;
     int temp;
-    
+
     weight = data->dist[to][from];
     for (int i = paths; i < data->size; i++) {
         if (data->matrix[to][i] != 0 && data->matrix[to][i] != 999999999) {

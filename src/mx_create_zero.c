@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 int **mx_create_zero_matrix(int size) {
     int buff = 999999999;

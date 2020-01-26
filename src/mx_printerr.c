@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 void mx_printerr(const char *s) {
     if (!s)

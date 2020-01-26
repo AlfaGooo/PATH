@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 static void first_word(char *str, char **result, int *num);
 static void second_word(char *str, char **result, int *num);
@@ -34,12 +34,11 @@ static void first_word(char *str, char **result, int *num) {
 
     while (index < *num && result[index] != NULL) {
         if (mx_strcmp(result[index], res) == 0) {
-            free(res);
-            res = NULL;
+            mx_strdel(&res);
             break;
         }
         index++;
-    }    
+    }
     if (res != NULL) {
         result[*num] = res;
         (*num)++;
@@ -54,8 +53,7 @@ static void second_word(char *str, char **result, int *num) {
 
     while (index < *num && result[index] != NULL) {
         if (mx_strcmp(result[index], res) == 0) {
-            free(res);
-            res = NULL;
+            mx_strdel(&res);
             break;
         }
         index++;

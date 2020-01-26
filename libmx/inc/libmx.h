@@ -23,7 +23,7 @@ typedef struct s_mylist {
     int **matrix;
     int **dist;
     char **top;
-    char **file; //file to print
+    char **file;
 } t_mylist;
 
 typedef struct s_list {
@@ -39,7 +39,6 @@ int mx_atoi(const char *str);
 bool mx_isalpha(int c);
 bool mx_line_check(char *str, int line);
 char **mx_check_rd_args(char **str, int size);
-// char **mx_read_arguments(char **str, int size); up funct
 int **mx_create_zero_matrix(int islands);
 int **mx_create_matrix(char **top, char **str, int size);
 int **mx_create_dist_matrix(int **matrix, int size);
@@ -50,7 +49,8 @@ int **mx_int_route(t_mylist *d, int num, int from, int to);
 void mx_final_print(t_mylist *d);
 bool mx_isspace(char c);
 void mx_print_distance(t_mylist *d, int *path, int i, int j);
-void matrix_to_final(int **matrix, int size, char **top);
+void mx_free_iarray(void **arr, int row);
+t_mylist *mx_struct_make(int s, int **m, int **d, char **t);
 
 // Utils pack:
 void mx_printchar(char c);
@@ -116,3 +116,4 @@ t_list *mx_sort_list(t_list *lst, bool (*cmp)(void *, void *));
 void mx_clear_list(t_list **list);
 
 #endif
+

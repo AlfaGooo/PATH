@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 int mx_count_short_ways(t_mylist *d, int a, int b) {
     int weight = d->dist[b][a];

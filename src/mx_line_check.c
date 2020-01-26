@@ -1,4 +1,4 @@
-#include "libmx.h"
+#include "../inc/pathfinder.h"
 
 bool mx_line_check(char *str, int line) {
     while (*str != '-')
